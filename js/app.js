@@ -90,22 +90,23 @@ function checkWin() {
   //get the overlay
   const overlay = document.getElementById('overlay');
   //if the length of the phrase matches the revealed letters the player has won...
-  if (letterArray.length == showArray.length) {
-    // show overlay
-    overlay.style.display = 'flex';
-    //change its class name from 'start' to 'win'
-    overlay.className = 'win';
-    //change the message
-    document.querySelector('.title').innerHTML = 'You Win';
-  }
-  if (missed === 5) {
-    // show overlay
-    overlay.style.display = 'flex';
-    //change its class name from 'start' to 'lose'
-    overlay.className = 'lose';
-    //change the message
-    document.querySelector('.title').innerHTML = 'You Lose';
-  }
+  setTimeout(function() {
+    if (letterArray.length == showArray.length) {
+      //change its class name from 'start' to 'win'
+      overlay.className = 'win';
+      //change the message
+      document.querySelector('.title').innerHTML = 'You Win';
+      // show overlay
+      overlay.style.display = 'flex';
+    } else if (missed === 5) {
+      //change its class name from 'start' to 'lose'
+      overlay.className = 'lose';
+      //change the message
+      document.querySelector('.title').innerHTML = 'You Lose';
+      // show overlay
+      overlay.style.display = 'flex';
+    }
+  }, 2000);
 }
 
 
@@ -148,7 +149,7 @@ function resetGame() {
 
 //listen for clicks
 document.addEventListener('click', function(e) {
-  
+
   //if target is the start/reset buttons
   if (e.target.className == 'btn__reset') {
     //hide overlay
