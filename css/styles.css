@@ -101,7 +101,7 @@ button {
 .show {
   color: #000;
   background-color: #C816A9;
-  transition: all 2s;
+  transition: all 1s;
 }
 
 /* Keyboard */

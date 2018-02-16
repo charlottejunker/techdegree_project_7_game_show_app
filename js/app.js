@@ -79,34 +79,44 @@ function checkLetter(chosenLetter) {
   return letterFound;
 }
 
+//get the overlay
+const overlay = document.getElementById('overlay');
+
 
 // 4 -- check if player has won or lost
+
+function win() {
+  //change overlay class name from 'start' to 'win'
+  overlay.className = 'win';
+  //change the message
+  document.querySelector('.title').innerHTML = 'You Win';
+  // show overlay
+  overlay.style.display = 'flex';
+}
+
+function lose() {
+  //change its class name from 'start' to 'lose'
+  overlay.className = 'lose';
+  //change the message
+  document.querySelector('.title').innerHTML = 'You Lose';
+  // show overlay
+  overlay.style.display = 'flex';
+
+}
 
 function checkWin() {
   //get all lis with class 'show'
   const showArray = document.querySelectorAll('.show');
   //change the reset button for when overlay is activated
   document.querySelector('.btn__reset').innerHTML = 'Play Again?';
-  //get the overlay
-  const overlay = document.getElementById('overlay');
-  //if the length of the phrase matches the revealed letters the player has won...
-  setTimeout(function() {
+    //if the length of the phrase matches the revealed letters the player has won...
     if (letterArray.length == showArray.length) {
-      //change its class name from 'start' to 'win'
-      overlay.className = 'win';
-      //change the message
-      document.querySelector('.title').innerHTML = 'You Win';
-      // show overlay
-      overlay.style.display = 'flex';
+      //pause briefly so that player can see the final letter displayed
+      setTimeout(win, 1000);
+    // but if they miss 5 guesses...
     } else if (missed === 5) {
-      //change its class name from 'start' to 'lose'
-      overlay.className = 'lose';
-      //change the message
-      document.querySelector('.title').innerHTML = 'You Lose';
-      // show overlay
-      overlay.style.display = 'flex';
+      lose();
     }
-  }, 2000);
 }
 
 
