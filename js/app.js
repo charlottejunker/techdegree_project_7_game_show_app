@@ -20,6 +20,10 @@ const phrases = [
 const phraseUl = document.getElementById('phraseUl');
 
 
+//get the overlay
+const overlay = document.getElementById('overlay');
+
+
 // *** FUNCTIONS ***
 
 
@@ -77,10 +81,6 @@ function checkLetter(chosenLetter) {
   //return the found letter for use in -10-
   return letterFound;
 }
-
-//get the overlay
-const overlay = document.getElementById('overlay');
-
 
 // 4 -- check if player has won or lost
 
