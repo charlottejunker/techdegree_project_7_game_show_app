@@ -68,7 +68,6 @@ function checkLetter(chosenLetter) {
   for (i = 0; i < letterArray.length; i += 1) {
     //if there is a match between the letter clicked and one or more letters in the phrase...
     if (letterArray[i].innerHTML == chosenLetter) {
-      console.log(letterArray);
       // ... add the class 'show'
       letterArray[i].classList.add("show");
       //change letterFound to the chosen letter
@@ -176,7 +175,6 @@ document.addEventListener('click', function(e) {
     e.target.setAttribute('disabled', true);
     // get its letter
     const letter = e.target.innerHTML;
-    console.log(letter);
     //pass the letter into checkLetter and store the returned value (letterFound)
     const check = checkLetter(letter);
     //if the returned value was null (a space)
